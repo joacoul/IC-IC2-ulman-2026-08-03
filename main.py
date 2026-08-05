@@ -183,3 +183,99 @@ for i in range(len(lecturas)-2):
 
 print(moviles)
 print(len(moviles))
+
+# C1
+print("C1")
+
+pelicula = {
+    "titulo": "La Odisea",
+    "anio": 2025,
+    "director": "Christopher Nolan"
+}
+
+print(pelicula["titulo"])
+
+# C2
+print("C2")
+
+pelicula["puntaje"]= 9.5
+pelicula["anio"]= 2026
+
+print(pelicula)
+
+# C3
+print("C3")
+
+# print(pelicula["duracion"])
+
+duracion = pelicula.get("duracion", "Desconocida")
+
+print(duracion)
+
+# C4
+print("C4")
+
+peliculas = [
+    {"titulo": "Taxi Driver", "anio": 1976, "director": "Martin Scorsese"},
+    {"titulo": "Bastardos Sin Gloria", "anio": 2009, "director": "Quentin Tarantino"},
+    {"titulo": "El Padrino", "anio": 1972, "director": "Francis Ford Coppola"}
+]
+
+for p in peliculas:
+    print(p.get("titulo", "Desconocido"))
+
+# C5
+print("C5")
+
+director_buscado = "Quentin Tarantino"
+encontrado = False
+
+for p in peliculas:
+    if p["director"] == "Quentin Tarantino":
+        print(p["director"])
+        encontrado = True
+
+if not encontrado:
+    print("No hay ninguna pelicula del director deseado")
+
+# C6
+print("C6")
+
+datos_1 = {"titulo": "Dune", "anio": 2021}
+datos_2 = {"puntaje": 8, "anio": 2024}
+
+combinado = datos_1 | datos_2
+
+print(combinado)
+
+# Se toman los datos del diccionario que esta despues de |. 
+# Utilizando | se crea un tercer diccionario, datos_1 y datos_2 quedan iguales, conservando sus datos originales.
+# Utilizando update(), se actualiza el diccionario deseado.
+
+# C7
+print("C7")
+
+frase = "Ingenieria en Computacion 2 es la continuacion de Ingenieria en Computacion 1"
+palabras = frase.split()
+
+conteo = {}
+
+for p in palabras:
+    if p in conteo:
+        conteo[p] += 1
+    else:
+        conteo[p] = 1
+
+print(conteo)
+
+
+# C8
+print("C8")
+
+inventario = {
+    "mouse": {"precio": 70000, "stock": 6},
+    "teclado": {"precio": 120000, "stock": 4},
+    "monitor": {"precio": 200000, "stock": 3}
+}
+
+print(f"El precio del monitor es de ${inventario['monitor']['precio']}")
