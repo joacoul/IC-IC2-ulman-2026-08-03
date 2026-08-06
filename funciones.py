@@ -21,4 +21,4 @@ def estadisticas(notas):
 def reporte(notas):
     datos = estadisticas(notas)
 
-    return f"Promedio: {datos["promedio"]} | Máximo: {datos["maximo"]} | Mínimo: {datos["minimo"]}"
+    return f"Promedio: {datos['promedio']} | Máximo: {datos['maximo']} | Mínimo: {datos['minimo']}"

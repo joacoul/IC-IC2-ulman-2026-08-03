@@ -336,3 +336,90 @@ from funciones import reporte
 reporte_d6 = reporte([7, 8, 6, 10, 4])
 print(reporte_d6)
 
+# E1
+print("E1")
+
+with open("peliculas.csv") as archivo:
+    for linea in archivo:
+        print(linea.strip())
+
+# E2
+print("E2")
+
+suma_puntajes = 0
+
+with open("peliculas.csv") as archivo:
+    for indice, linea in enumerate(archivo):
+        if indice == 0:
+            continue
+        partes = linea.strip().split(",")
+        puntaje = float(partes[2])
+        suma_puntajes += puntaje
+
+print(suma_puntajes)
+
+# E3
+print("E3")
+
+cantidad = 0
+suma_puntajes = 0
+mejor_titulo = None
+mejor_puntaje = 0
+
+with open("peliculas.csv") as archivo:
+    for indice, linea in enumerate(archivo):
+        if indice == 0:
+            continue
+        partes = linea.strip().split(",")
+        titulo = partes[0]
+        puntaje = float(partes[2])
+
+        cantidad += 1
+        suma_puntajes += puntaje
+
+        if puntaje > mejor_puntaje:
+            mejor_puntaje = puntaje
+            mejor_titulo = titulo
+
+promedio_final = suma_puntajes / cantidad if cantidad > 0 else 0
+
+print(f"Cantidad: {cantidad}, Promedio: {promedio_final}, Mejor: {mejor_titulo}")
+
+# E4
+print("E4")
+
+genero_elegido = "Belico"
+
+with open("peliculas.csv") as archivo, open("filtradas.csv", "w") as salida:
+    for indice, linea in enumerate(archivo):
+        if indice == 0:
+            salida.write(linea)   
+            continue
+        partes = linea.strip().split(",")
+        genero = partes[3]
+        if genero == genero_elegido:
+            salida.write(linea)
+
+# E5
+print("E5")
+
+totales_por_genero = {}
+
+with open("peliculas.csv") as archivo:
+    for indice, linea in enumerate(archivo):
+        if indice == 0:
+            continue
+        partes = linea.strip().split(",")
+        genero = partes[3]
+        puntaje = float(partes[2])
+
+        if genero not in totales_por_genero:
+            totales_por_genero[genero] = {"suma": 0, "cantidad": 0}
+        totales_por_genero[genero]["suma"] += puntaje
+        totales_por_genero[genero]["cantidad"] += 1
+
+promedio_por_genero = {}
+for genero, datos in totales_por_genero.items():
+    promedio_por_genero[genero] = datos["suma"] / datos["cantidad"] if datos["cantidad"] > 0 else 0
+
+print(promedio_por_genero)
