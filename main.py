@@ -279,3 +279,60 @@ inventario = {
 }
 
 print(f"El precio del monitor es de ${inventario['monitor']['precio']}")
+
+# D1
+print("D1")
+
+from funciones import promedio
+
+resultado_1 = promedio([7, 4, 9, 10, 6])
+print(resultado_1)
+
+resultado_2 = promedio([3, 3, 3])
+print(resultado_2)
+
+# D2
+print ("D2")
+
+from funciones import aprobo
+
+aprobo_1_d2 = aprobo([7, 4, 9, 10, 6])
+print(aprobo_1_d2)
+
+aprobo_2_d2 = aprobo([4, 6, 7, 3, 2])
+print(aprobo_2_d2)
+
+# D3
+print("D3")
+
+from funciones import estadisticas
+
+estadisticas_d3 = estadisticas([7, 4, 9, 10, 6])
+print(estadisticas_d3)
+
+# D4
+print("D4")
+
+aprobo_1_d4 = aprobo([7, 4, 9, 8, 6])
+print(aprobo_1_d4)
+
+aprobo_2_d4 = aprobo([7, 4, 9, 8, 6], minimo = 7)
+print(aprobo_2_d4)
+
+# D5
+print("D5")
+
+promedio_1_d5 = promedio([])
+print(promedio_1_d5)
+
+promedio_2_d5 = promedio([5, 6, 7])
+print(promedio_2_d5)
+
+# D6
+print("D6")
+
+from funciones import reporte
+
+reporte_d6 = reporte([7, 8, 6, 10, 4])
+print(reporte_d6)
+
