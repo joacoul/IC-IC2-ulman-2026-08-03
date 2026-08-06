@@ -22,3 +22,6 @@ def reporte(notas):
     datos = estadisticas(notas)
 
     return f"Promedio: {datos['promedio']} | Máximo: {datos['maximo']} | Mínimo: {datos['minimo']}"
+
+def duracion_pelicula(pelicula):
+    return pelicula.get("duracion", "Desconocida")
