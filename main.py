@@ -1,3 +1,5 @@
+from funciones import extraer_puntajes, leer_peliculas, promedio, estadisticas, aprobo, reporte, duracion_pelicula
+
 # A1
 print("A1")
 
@@ -5,11 +7,11 @@ notas = [7, 4, 9, 10, 6]
 
 total = sum(notas)
 cantidad = len(notas)
-promedio = total / cantidad
+promedio_a1 = total / cantidad
 
-print(promedio)
+print(promedio_a1)
 
-if promedio >= 6:
+if promedio_a1 >= 6:
     print("Aprobado")
 else:
     print("Desaprobado")
@@ -48,7 +50,7 @@ prueba = [7, 8, 10]
 promedio_prueba = sum(prueba) / len(prueba)
 promedio_prueba_redondeado = round(promedio_prueba, 1)
 
-promedio_A1_redondeado = round(promedio, 1)
+promedio_A1_redondeado = round(promedio_a1, 1)
 
 print(promedio_prueba_redondeado)
 print(promedio_A1_redondeado)  
@@ -283,8 +285,6 @@ print(f"El precio del monitor es de ${inventario['monitor']['precio']}")
 # D1
 print("D1")
 
-from funciones import promedio
-
 resultado_1 = promedio([7, 4, 9, 10, 6])
 print(resultado_1)
 
@@ -304,8 +304,6 @@ print(aprobo_2_d2)
 
 # D3
 print("D3")
-
-from funciones import estadisticas
 
 estadisticas_d3 = estadisticas([7, 4, 9, 10, 6])
 print(estadisticas_d3)
@@ -330,8 +328,6 @@ print(promedio_2_d5)
 
 # D6
 print("D6")
-
-from funciones import reporte
 
 reporte_d6 = reporte([7, 8, 6, 10, 4])
 print(reporte_d6)
@@ -423,3 +419,19 @@ for genero, datos in totales_por_genero.items():
     promedio_por_genero[genero] = datos["suma"] / datos["cantidad"] if datos["cantidad"] > 0 else 0
 
 print(promedio_por_genero)
+
+# H1
+print("H1")
+
+peliculas = leer_peliculas("peliculas.csv")
+print(peliculas)
+
+puntajes = extraer_puntajes(peliculas)
+print(puntajes)
+
+estadisticas_peliculas = estadisticas(puntajes)
+estadisticas_peliculas["promedio"] = round(estadisticas_peliculas["promedio"], 2)
+print(estadisticas_peliculas)
+
+peliculas_ordenadas = sorted(peliculas, key=lambda p: p["puntaje"], reverse=True)
+print(peliculas_ordenadas)

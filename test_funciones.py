@@ -1,5 +1,5 @@
 import pytest
-from funciones import promedio, aprobo, estadisticas, duracion_pelicula
+from funciones import extraer_puntajes, leer_peliculas, promedio, aprobo, estadisticas, duracion_pelicula
 
 # G1
 
@@ -55,3 +55,17 @@ def test_promedio_lista_vacia():
 
 def test_aprobo_parametrizado(notas, esperado):
     assert aprobo(notas) == esperado
+
+def test_extraer_puntajes():
+    peliculas_prueba = [
+        {"titulo": "Test1", "puntaje": 5.0},
+        {"titulo": "Test2", "puntaje": 8.0}
+    ]
+    resultado = extraer_puntajes(peliculas_prueba)
+    assert resultado == [5.0, 8.0]
+
+def test_leer_peliculas():
+    resultado = leer_peliculas("peliculas.csv")
+    assert len(resultado) == 5
+    assert resultado[0]["titulo"] == "Taxi Driver"
+
