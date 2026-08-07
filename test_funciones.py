@@ -1,5 +1,5 @@
 import pytest
-from funciones import extraer_puntajes, leer_peliculas, promedio, aprobo, estadisticas, duracion_pelicula
+from funciones import extraer_puntajes, leer_peliculas, promedio, aprobo, estadisticas, duracion_pelicula, reporte
 
 # G1
 
@@ -69,3 +69,8 @@ def test_leer_peliculas():
     assert len(resultado) == 5
     assert resultado[0]["titulo"] == "Taxi Driver"
 
+# H2
+
+def test_reporte():
+    resultado = reporte([7, 4, 9, 10, 6])
+    assert resultado == "Promedio: 7.2 | Máximo: 10 | Mínimo: 4"
