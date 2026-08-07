@@ -25,3 +25,27 @@ def reporte(notas):
 
 def duracion_pelicula(pelicula):
     return pelicula.get("duracion", "Desconocida")
+
+# H1
+
+def leer_peliculas(archivo_csv):
+    peliculas = []
+    with open(archivo_csv) as archivo:
+        for indice, linea in enumerate(archivo):
+            if indice == 0:
+                continue
+            partes = linea.strip().split(",")
+            pelicula = {
+                "titulo": partes[0],
+                "anio": int(partes[1]),
+                "puntaje": float(partes[2]),
+                "genero": partes[3]
+            }
+            peliculas.append(pelicula)
+    return peliculas
+
+def extraer_puntajes(peliculas):
+    puntajes = []
+    for pelicula in peliculas:
+        puntajes.append(pelicula["puntaje"])
+    return puntajes
